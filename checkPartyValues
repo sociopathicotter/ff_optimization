@@ -1,0 +1,98 @@
+# using several characteristics to assess optimality
+# each character has one specific array
+# physAtk = []
+# physDef = []
+# spd = []
+# magAtk = []
+# magDef = []
+# blackMagic = []
+# heal = []
+
+# determine optimality through:
+    # raw point values (party must have cumulative point value of > x)
+    # stat point values (party must have > x in certain stat)
+    # necessary role fulfillment (party must have one good healer or two average healers)
+
+warrior = [5, 5, 2, 1, 2, False, False] # 15
+thief = [4, 3, 5, 1, 1, False, False] # 14
+monk = [5, 4, 3, 1, 2, False, False] # 15
+mageWhite = [1, 2, 3, 5, 4, False, True] # 15, can heal (+1) = 16
+mageBlack = [1, 2, 3, 5, 4, True, False] # 15, black magic (+1) = 16
+mageRed = [3, 4, 2, 4, 3, True, True] # 16, can heal (+2) = 18
+
+knight = [5, 5, 3, 1, 3, False, True] # 16
+ninja = [4, 3, 5, 3, 2, True, False] # 17
+master = [5, 5, 4, 1, 2, False, False] # 16
+wizardWhite = [2, 3, 3, 5, 5, False, True] # 18, can heal (+1) = 19
+wizardBlack = [2, 3, 3, 5, 5, True, False] # 18, black magic (+1) = 19
+wizardRed = [4, 4, 3, 4, 3, True, True] # 18, can heal/nuke (+2) = 20
+
+baseNames = ["Warrior", "Thief", "Monk", "White Mage", "Black Mage", "Red Mage"]
+#promotedNames = ["Knight", "Ninja", "Master", "White Wizard", "Black Wizard", "Red Wizard"]
+attributes = ["physAtk", "physDef", "spd", "magAtk", "magDef"]
+
+base = [warrior, thief, monk, mageWhite, mageBlack, mageRed]
+promoted = [knight, ninja, master, wizardWhite, wizardBlack, wizardRed]
+
+for member in range(len(baseNames)):
+    print(baseNames[member] + " " + str(member))
+    print(str(base[member]))
+
+print("\nPick 4. Warrior is 0, ..., Red Mage is 5")
+choice1 = int(input())
+choice2 = int(input())
+choice3 = int(input())
+choice4 = int(input())
+
+party = [choice1, choice2, choice3, choice4]
+totalStats = 0
+
+for stat in party:
+    stats = sum(base[stat])
+
+    if base[stat] is True:
+        stats += 1
+
+    print(str(stats))
+    totalStats += stats
+    print("--party total: ", int(totalStats))
+print(str(totalStats))
+
+if totalStats >= 60:
+    print("stat value good\n")
+else:
+    print("stat value not good\n")
+
+nuke = False # assume that black and white magic aren't there until party is added
+heal = False
+
+def checkPartyStats(array, num):
+    total = 0
+    for part in range(0, 4):
+        subChoice = array[part]
+        total += subChoice[num]
+    print(str(total))
+    return subChoice
+
+def checkBlackMagic(array):
+    bCheck = False
+    if array[5] is True:
+        bCheck = True
+    else:
+        bCheck = False
+    print(str(bCheck))
+
+def checkWhiteMagic(array):
+    wCheck = False
+    if array[6] is True:
+        wCheck = True
+    else:
+        wCheck = False
+    print(str(wCheck))
+
+for stat in range (0, 5):
+    print(attributes[stat])
+    checkPartyStats(base, stat)
+
+checkBlackMagic(base)
+checkWhiteMagic(base)
