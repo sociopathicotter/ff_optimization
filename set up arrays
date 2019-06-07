@@ -1,0 +1,20 @@
+# use several characteristics to assess optimality
+# each character has one specific array
+# array = [physAtk, physDef, spd, magAtk, magDef, blackMagicUse, whiteMagicUse]
+
+# determine optimality through:
+    # raw point values (party must have cumulative point value of > x)
+    # stat point values (party must have > x in certain stat)
+    # party must have one good healer or two average healers
+
+warrior = [5, 5, 2, 1, 2, False, False] # 15
+thief = [4, 3, 5, 1, 1, False, False] # 14
+monk = [5, 4, 3, 1, 2, False, False] # 15
+mageWhite = [1, 2, 3, 5, 4, False, True] # 15, can heal (+1)
+mageBlack = [1, 2, 3, 5, 4, True, False] # 15, black magic (+1)
+mageRed = [3, 4, 2, 4, 3, True, True] # 16, can heal (+1)
+
+names = ["Warrior", "Thief", "Monk", "White Mage", "Black Mage", "Red Mage"]
+attributes = ["physAtk", "physDef", "spd", "magAtk", "magDef"]
+
+ff_classes = [warrior, thief, monk, mageWhite, mageBlack, mageRed]
