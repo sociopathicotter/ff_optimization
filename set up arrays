@@ -10,9 +10,9 @@
 warrior = [5, 5, 2, 1, 2, False, False] # 15
 thief = [4, 3, 5, 1, 1, False, False] # 14
 monk = [5, 4, 3, 1, 2, False, False] # 15
-mageWhite = [1, 2, 3, 5, 4, False, True] # 15, can heal (+1)
-mageBlack = [1, 2, 3, 5, 4, True, False] # 15, black magic (+1)
-mageRed = [3, 4, 2, 4, 3, True, True] # 16, can heal (+1)
+mageWhite = [1, 2, 3, 5, 4, False, True] # 15, can heal
+mageBlack = [1, 2, 3, 5, 4, True, False] # 15, black magic
+mageRed = [3, 4, 2, 4, 3, True, True] # 16, can heal
 
 names = ["Warrior", "Thief", "Monk", "White Mage", "Black Mage", "Red Mage"]
 attributes = ["physAtk", "physDef", "spd", "magAtk", "magDef"]
