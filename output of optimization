@@ -1,0 +1,11 @@
+for stat in range (0, 5):
+    print(attributes[stat])
+    checkPartyStats(ff_classes, stat)
+
+checkMagic(choice1, choice2, choice3, choice4)
+
+if totalStats >= 60 and checkPartyStats(ff_classes, stat) and checkMagic(choice1, choice2, choice3, choice4):
+    print("the party is optimal =)")
+else:
+    print("the party is not optimal, but still playable =)")
+    
